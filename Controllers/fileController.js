@@ -7,27 +7,30 @@ const xlsx = require('xlsx');
 
 const handleFileUpload = async (req, res) => {
   const file = req.file;
+  console.log('procesing the file',file.mimetype)
   if (!file) return res.status(400).json({ error: 'No file uploaded' });
 
   const filePath = path.resolve(file.path);
-  const ext = path.extname(file.originalname).toLowerCase();
+  console.log(filePath)
+  const ext = file.mimetype.split('/')[1]
+  console.log(ext,'ext')
   try {
     let text = '';
 
-    if (ext === '.pdf') {
+    if (ext === 'pdf') {
       const dataBuffer = fs.readFileSync(filePath);
       const data = await pdfParse(dataBuffer);
       text = data.text;
-    } else if (ext === '.docx') {
+    } else if (ext === 'vnd.openxmlformats-officedocument.wordprocessingml.document') {
       const result = await mammoth.extractRawText({ path: filePath });
       text = result.value;
-    } else if (ext === '.doc') {
+    } else if (ext === 'msword') {
       const extractor = new WordExtractor();
       const doc = await extractor.extract(filePath);
       text = doc.getBody();
-    } else if (ext === '.txt') {
+    } else if (ext === 'plain') {
       text = fs.readFileSync(filePath, 'utf-8');
-    } else if (ext === '.xlsx' || ext === '.xls') {
+    } else if (ext === 'vnd.openxmlformats-officedocument.spreadsheetml.sheet' || ext === '.xls') {
       const workbook = xlsx.readFile(filePath);
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];

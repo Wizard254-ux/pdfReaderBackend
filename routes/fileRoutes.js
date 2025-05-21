@@ -4,9 +4,10 @@ const { handleFileUpload } = require('../Controllers/fileController');
 const router = express.Router();
 
 const storage = multer.diskStorage({
-  destination: './uploads',
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname);
+    destination: './uploads',
+    filename: (req, file, cb) => {
+        console.log(file)
+        cb(null, Date.now() + '-' + file.originalname);
   },
 });
 const upload = multer({ storage });

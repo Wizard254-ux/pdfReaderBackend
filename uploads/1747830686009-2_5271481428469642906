@@ -1,0 +1,86 @@
+Summary
+PROJECT OVERVIEW:
+We're seeking a fast, clean, and secure way to integrate  test results from a specific API into our WordPress website. The goal is to create a modern, Apple-inspired dashboard for logged-in customers that displays all of their emmissions device results and emails them automatically when new test results are available.
+
+We’re open to plugin-based OR external solutions, as long as the experience is seamless and maintainable via WordPress.
+
+OBJECTIVES:
+
+Display all devices linked to a customer account inside WordPress.
+
+Show real-time or near real-time  test results.
+
+Trigger an email notification when a new result is received.
+
+Provide an Apple-style UI (clean, simple, responsive).
+
+Deliver the solution within 7 days max.
+
+PREFERRED SOLUTION OPTIONS:
+
+A. WordPress Plugin (Preferred):
+
+Custom plugin coded in PHP/JS that fetches and displays API data.
+
+Includes admin panel for API keys, user-device linking, and email setup.
+
+Uses cron job or webhook (depending on API) for real-time sync.
+
+Includes shortcode or template override for front-end display.
+
+B. Headless/API Integration via REST:
+
+Use a front-end JS app (React, Vue, or AlpineJS) embedded in a WordPress page.
+
+JS directly calls the API (securely via proxy/middleware).
+
+WordPress handles auth, layout, and content management.
+
+Hosted externally or as a headless module inside WP.
+
+C. External Microservice + iFrame Embed:
+
+Build a lightweight external app
+
+Display user’s device dashboard via secure iframe in WordPress.
+
+Authenticate user via token passed from WP session.
+
+Useful for rapid scaling or isolating the logic from WP entirely.
+
+CORE FEATURES:
+
+API Integration: Securely connect to  API using bearer token. Display results per device (VIN, test result, date).
+
+User Dashboard: Show all devices linked to account.
+
+Email Automation: Send branded email when a new result is detected for a user’s device.
+
+Admin Controls (if plugin): API key config, device-user linking, email settings.
+
+DESIGN REQUIREMENTS:
+
+Clean, mobile-first layout inspired by Apple and Tesla UIs.
+
+Simple cards per truck/device: VIN, result, date/time, "View Details" button.
+
+Clear color codes (green/pass, red/fail, gray/pending).
+
+TIMELINE:
+
+Project start: ASAP
+
+Ideal Delivery: within 7 working days
+
+
+DELIVERABLES:
+
+Working solution integrated into WordPress (plugin or external method)
+
+Email system in place
+
+Admin setup/config area (or deployment instructions)
+
+User-facing dashboard
+
+Installation + maintenance documentation
